@@ -5,7 +5,7 @@ variables:
     required: true
     default: https://petstore3.swagger.io/api/v3/openapi.json
   artifact:
-    default: false
+    default: true
     
 ## NOTHING BELOW SHOULD BE MODIFIED ##
 
@@ -26,10 +26,9 @@ runs:
       run: |
         npm install -g newman
         npm i -g openapi-to-postmanv2
-        sudo mkdir -p ./newman
-        sudo wget ${{ inputs.url }} -O ./newman/swagger.json && sudo chown -R 1001:1001 ./newman
-        openapi2postmanv2 -s ./newman/swagger.json -o ./newman/collection.json && sudo chown -R 1001:1001 ./newman
-        newman run ./newman/collection.json
+        sudo mkdir -p ./postman
+        sudo wget ${{ inputs.url }} -O ./postman/swagger.json && sudo chown -R 1001:1001 ./postman
+        openapi2postmanv2 -s ./newman/swagger.json -o ./postman/collection.json && sudo chown -R 1001:1001 ./postman
       shell: bash
     - uses: actions/upload-artifact@v3
       if: ${{ github.event.inputs.artifact == 'true' }}
