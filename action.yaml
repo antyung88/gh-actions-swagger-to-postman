@@ -31,7 +31,7 @@ runs:
         openapi2postmanv2 -s ./postman/swagger.json -o ./postman/collection.json && sudo chown -R 1001:1001 ./postman
       shell: bash
     - uses: actions/upload-artifact@v3
-      if: ${{ github.event_name == 'variables' && github.inputs.artifact }}
+      if: ${{ github.event_name == 'variables' && inputs.artifact }}
       with:
         path: ./postman/*
       
