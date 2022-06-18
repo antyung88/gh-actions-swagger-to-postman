@@ -1,2 +1,2 @@
-# dev-gh-actions-swagger-to-postman
-Convert Swagger JSON file To Postman Collection via Github Actions
+# gh-actions-swagger-to-postman
+Convert Swagger JSON URL To Postman Collection via Github Actions + Artifacts
