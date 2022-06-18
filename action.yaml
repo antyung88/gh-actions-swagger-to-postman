@@ -22,7 +22,7 @@ runs:
       uses: actions/setup-node@v3
       with:
         node-version: "14.x"
-    - name: Install newman & openapi-to-postmanv2 & run
+    - name: Install openapi-to-postmanv2
       run: |
         npm i -g openapi-to-postmanv2
         sudo mkdir -p ./postman
