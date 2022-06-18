@@ -25,7 +25,7 @@ runs:
         npm i -g openapi-to-postmanv2
         sudo mkdir -p ./postman
         sudo wget ${{ inputs.url }} -O ./postman/swagger.json && sudo chown -R 1001:1001 ./postman
-        openapi2postmanv2 -s ./postman/swagger.json -o ./postman/collection.json && sudo chown -R 1001:1001 ./postman
+        openapi2postmanv2 -s ./postman/swagger.json -o ./postman/collection.json
       shell: bash
     - uses: actions/upload-artifact@v3
       with:
