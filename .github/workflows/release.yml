@@ -13,7 +13,6 @@ jobs:
   deploy-build:
     name: Deploy Release
     if: ${{ github.event.inputs.job == 'deploy'}}
-    needs: test-build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
