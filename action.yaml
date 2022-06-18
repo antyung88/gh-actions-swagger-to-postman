@@ -29,14 +29,8 @@ runs:
         sudo wget ${{ inputs.url }} -O ./postman/swagger.json && sudo chown -R 1001:1001 ./postman
         openapi2postmanv2 -s ./postman/swagger.json -o ./postman/collection.json && sudo chown -R 1001:1001 ./postman
       shell: bash
-    - name: Fetch 
-      id: fetch
-      with:
-        cond: ${{ inputs.artifact }}
-        if_true: '0'
-        if_false: '1'
     - uses: actions/upload-artifact@v3
-      if: {{ steps.fetch.outputs.value == '0' }}
+      if: github.event.inputs.artifact == true 
       with:
         path: ./postman/*
       
