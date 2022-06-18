@@ -1,0 +1,30 @@
+name: Create Actions Releas
+
+on:
+  push:
+  workflow_dispatch:
+    inputs:
+      job:
+        description: 'Job to run.'
+        required: true
+        default: 'deploy'
+
+jobs:
+  deploy-build:
+    name: Deploy Release
+    if: ${{ github.event.inputs.job == 'deploy'}}
+    needs: test-build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        with:
+          tag_name: "v1"
+          release_name: "v1"
+          draft: false
+          pre-release: true
