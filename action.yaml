@@ -19,7 +19,7 @@ runs:
       run: |
         sudo mkdir -p ./postman
         sudo wget ${{ inputs.url }} -O ./postman/swagger.json && sudo chown -R 1001:1001 ./postman
-        docker run --rm -it -v $(pwd)/postman:/postman ghcr.io/antyung88/openapi2postmanv2:latest openapi2postmanv2 -s /postman/swagger.json -o /postman/collection.json
+        docker run -v $(pwd)/postman:/postman ghcr.io/antyung88/openapi2postmanv2:latest openapi2postmanv2 -s /postman/swagger.json -o /postman/collection.json
       shell: bash
     - uses: actions/upload-artifact@v3
       with:
