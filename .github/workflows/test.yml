@@ -1,4 +1,4 @@
-name: Create Actions Release
+name: test Release
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 jobs:
 
   test-build:
-    name: Convert Swagger URL to Postman
+    name: Test Convert Swagger URL to Postman
     runs-on: ubuntu-latest
     steps:
     
