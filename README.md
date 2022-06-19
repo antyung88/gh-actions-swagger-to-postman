@@ -1,4 +1,4 @@
-# gh-actions-swagger-to-postman
+# gh-actions-swagger-to-postman [![Create Actions Release](https://github.com/antyung88/gh-actions-swagger-to-postman/actions/workflows/release.yml/badge.svg)](https://github.com/antyung88/gh-actions-swagger-to-postman/actions/workflows/release.yml)
 Convert Swagger JSON URL To Postman Collection via Github Actions + Artifacts
 
 # Usage
