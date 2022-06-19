@@ -15,17 +15,11 @@ runs:
   using: composite
   steps:
     - uses: actions/checkout@v3
-    # Install Node on the runner
-    - name: Install Node
-      uses: actions/setup-node@v3
-      with:
-        node-version: "14.x"
     - name: Install openapi-to-postmanv2
       run: |
-        npm i -g openapi-to-postmanv2
         sudo mkdir -p ./postman
         sudo wget ${{ inputs.url }} -O ./postman/swagger.json && sudo chown -R 1001:1001 ./postman
-        openapi2postmanv2 -s ./postman/swagger.json -o ./postman/collection.json
+        docker run --rm -it -v $(pwd)/postman:/postman ghcr.io/antyung88/openapi2postmanv2:latest openapi2postmanv2 -s /postman/swagger.json -o /postman/collection.json
       shell: bash
     - uses: actions/upload-artifact@v3
       with:
