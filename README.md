@@ -5,7 +5,7 @@ Convert Swagger JSON URL To Postman Collection via Github Actions + Artifacts
 
 ```
       - uses: actions/checkout@v3
-      - uses: antyung88/gh-actions-swagger-to-postman@v1.7
+      - uses: antyung88/gh-actions-swagger-to-postman@v2.1
         with:
           url: https://petstore3.swagger.io/api/v3/openapi.json
 ```
@@ -43,7 +43,7 @@ jobs:
     steps:
     
       - uses: actions/checkout@v3
-      - uses: antyung88/gh-actions-swagger-to-postman@v1.7
+      - uses: antyung88/gh-actions-swagger-to-postman@v2.1
         with:
           url: https://petstore3.swagger.io/api/v3/openapi.json
       - run: |
