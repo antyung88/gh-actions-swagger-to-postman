@@ -27,3 +27,21 @@ jobs:
           tag_name: v1.9
           release_name: v1.9
           draft: false
+
+  build-stable:
+    name: Build Stable Image
+    if: ${{ github.event.inputs.job == 'docker'}}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Out Repo 
+        uses: actions/checkout@v3
+      - name: Login to Github Packages
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GH_TOKEN }}
+      - run: |
+          docker build . -t ghcr.io/${{ github.actor }}/${{ secrets.image }}:latest
+          docker push ghcr.io/${{ github.actor }}/${{ secrets.image }}:latest
+
