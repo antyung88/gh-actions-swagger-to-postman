@@ -40,4 +40,3 @@ jobs:
           tag_name: "v1.9"
           release_name: "v1.9"
           draft: false
-          pre-release: true
