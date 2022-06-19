@@ -15,6 +15,15 @@ Available Commands
 url: <your_Swagger_json_url> 
 ```
 
+# GitHub Actions Path
+
+Saves to path:
+
+```
+./postman/swagger.json
+./postman/collection.json
+```
+
 # Usage Example 
 
 ```
