@@ -46,5 +46,8 @@ jobs:
       - uses: antyung88/gh-actions-swagger-to-postman@v1.7
         with:
           url: https://petstore3.swagger.io/api/v3/openapi.json
+      - run: |
+          cat ./postman/swagger.json
+          cat ./postman/collection.json
 ...
 ```
