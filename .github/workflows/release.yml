@@ -10,6 +10,20 @@ on:
         default: 'deploy'
 
 jobs:
+
+  test-build:
+    name: Convert Swagger URL to Postman
+    runs-on: ubuntu-latest
+    steps:
+    
+      - uses: actions/checkout@v3
+      - uses: antyung88/gh-actions-swagger-to-postman@v1.7
+        with:
+          url: https://petstore3.swagger.io/api/v3/openapi.json
+      - run: |
+          cat ./postman/swagger.json
+          cat ./postman/collection.json
+
   deploy-build:
     name: Deploy Release
     if: ${{ github.event.inputs.job == 'deploy'}}
