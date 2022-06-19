@@ -2,7 +2,7 @@ name: Create Actions Release
 
 on:
   push:
-  pull-request:
+  pull_request:
 
 jobs:
 
