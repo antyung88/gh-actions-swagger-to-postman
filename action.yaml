@@ -1,9 +1,10 @@
 ## Lets define some variables. ##
 
-variables:
-  url:
-    required: true
-    default: https://petstore3.swagger.io/api/v3/openapi.json
+inputs:
+  variables:
+    url:
+      required: true
+      default: https://petstore3.swagger.io/api/v3/openapi.json
     
 ## NOTHING BELOW SHOULD BE MODIFIED ##
 
@@ -24,7 +25,7 @@ runs:
       run: |
         npm i -g openapi-to-postmanv2
         sudo mkdir -p ./postman
-        sudo wget ${{ inputs.url }} -O ./postman/swagger.json && sudo chown -R 1001:1001 ./postman
+        sudo wget ${{ inputs.variables.url }} -O ./postman/swagger.json && sudo chown -R 1001:1001 ./postman
         openapi2postmanv2 -s ./postman/swagger.json -o ./postman/collection.json
       shell: bash
     - uses: actions/upload-artifact@v3
