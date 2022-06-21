@@ -30,7 +30,7 @@ Saves to path:
 ./github/workflow/actions.yml
 ```
 ```
-Name: Setup & Run LXD/LXC in GitHub Actions
+Name: Convert Swagger URL to Postman
 
 on:
   push:
