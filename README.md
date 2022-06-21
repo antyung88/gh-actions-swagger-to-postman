@@ -1,7 +1,7 @@
 # gh-actions-swagger-to-postman [![Create Actions Release](https://github.com/antyung88/gh-actions-swagger-to-postman/actions/workflows/release.yml/badge.svg)](https://github.com/antyung88/gh-actions-swagger-to-postman/actions/workflows/release.yml)
 Convert Swagger JSON URL To Postman Collection via Github Actions + Artifacts
 
-# Usage
+# Usage- GitHub Actions
 
 ```
       - uses: actions/checkout@v3
@@ -50,4 +50,9 @@ jobs:
           cat ./postman/swagger.json
           cat ./postman/collection.json
 ...
+```
+
+# Usage- Docker
+```
+docker run ghcr.io/antyung88/openapi2postmanv2:latest openapi2postmanv2
 ```
