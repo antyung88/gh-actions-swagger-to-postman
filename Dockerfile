@@ -1,4 +1,4 @@
-FROM node:18.4.0-alpine3.16 AS node
+FROM node:18.6.0-alpine3.16 AS node
 RUN npm i -g openapi-to-postmanv2
 
 FROM scratch
